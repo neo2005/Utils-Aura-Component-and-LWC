@@ -1,0 +1,69 @@
+<!--
+  @description       : 
+  @author            : xoel.rodriguez@vass.es
+  @group             : 
+  @last modified on  : 06-18-2022
+  @last modified by  : Francisco José Díaz Ramírez
+-->
+<template>
+    <lightning-record-edit-form object-api-name={objectName} record-id={recordId}>
+        <lightning-messages></lightning-messages>
+          
+        <div class="slds-grid slds-wrap">
+            
+            <!-- Campos de la columna izquierda-->
+            <div class="slds-col slds-size_1-of-2 slds-p-horizontal_x-small" >
+                <template for:each={arrayFields} for:item="field">
+                    <template if:true={field.showInLeftColumn}>
+                        <template if:false={field.valueIsFilled}>
+                            <template if:false={field.newLabel}>
+                                <lightning-input-field data-id={field.name} key={field.name} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-stacked" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                            <template if:true={field.newLabel}>
+                                <label class="slds-form-element__label slds-m-left_x-small" key={field.name}>{field.valueNewLabel}</label>
+                                <lightning-input-field data-id={field.name} key={field.name} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-hidden" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                        </template>
+                        <template if:true={field.valueIsFilled}>
+                            <template if:false={field.newLabel}>
+                                <lightning-input-field data-id={field.name} key={field.name} value={field.value} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-stacked" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                            <template if:true={field.newLabel}>
+                                <label class="slds-form-element__label slds-m-left_x-small" key={field.name}>{field.valueNewLabel}</label>
+                                <lightning-input-field data-id={field.name} key={field.name} value={field.value} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-hidden" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                        </template>
+                    </template>
+                </template>
+            </div>
+
+            <!-- Campos de la columna derecha-->
+            <div class="slds-col slds-size_1-of-2 slds-p-horizontal_x-small" >
+                <template for:each={arrayFields} for:item="field">
+                    <template if:false={field.showInLeftColumn}>
+                        <template if:false={field.valueIsFilled}>
+                            <template if:false={field.newLabel}>
+                                <lightning-input-field data-id={field.name} key={field.name} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-stacked" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                            <template if:true={field.newLabel}>
+                                <label class="slds-form-element__label slds-m-left_x-small" key={field.name}>{field.valueNewLabel}</label>
+                                <lightning-input-field data-id={field.name} key={field.name} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-hidden" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                        </template>
+                        <template if:true={field.valueIsFilled}>
+                            <template if:false={field.newLabel}>
+                                <lightning-input-field data-id={field.name} key={field.name} value={field.value} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-stacked" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                            <template if:true={field.newLabel}>
+                                <label class="slds-form-element__label slds-m-left_x-small" key={field.name}>{field.valueNewLabel}</label>
+                                <lightning-input-field data-id={field.name} key={field.name} value={field.value} field-name={field.name} required={field.required} read-only={field.readonly} disabled={field.readonly} variant="label-hidden" onchange={handleChangeValue}></lightning-input-field>
+                            </template>
+                        </template>
+                    </template>
+                </template>
+            </div>
+            
+        </div>
+
+    </lightning-record-edit-form>
+</template>

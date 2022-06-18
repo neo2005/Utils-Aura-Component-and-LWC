@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : Francisco José Díaz Ramírez
+  @group             : 
+  @last modified on  : 06-18-2022
+  @last modified by  : Francisco José Díaz Ramírez
+-->
+<template>
+    <lightning-card >
+        <div if:true={_isSpinner}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+
+        <h2 class="bold-font">Contact Information</h2>
+        <c-generic-form object-name="Contact" 
+                        array-fields={_contactFields}
+                        onchangefieldvalueevent={handleChangefieldvalue}>
+        </c-generic-form>
+        <h2 class="slds-m-top_small bold-font">Opportunity Information</h2>
+        <c-generic-form object-name="Opportunity" 
+                array-fields={_opportunityFields}
+                onchangefieldvalueevent={handleChangefieldvalue}>
+        </c-generic-form>
+        <div class="slds-align_absolute-center slds-m-top_small">
+            <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+    
+</template>
