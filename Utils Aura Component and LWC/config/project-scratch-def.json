@@ -1,7 +1,7 @@
 {
   "orgName": "neo2005 company",
-  "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "edition": "Enterprise",
+  "features": ["EnableSetPasswordInApi","StreamingAPI","SalesUser","ServiceCloud","API","ChangeDataCapture","FinancialServicesUser:1","PersonAccounts","ServiceUser"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
