@@ -40,6 +40,19 @@ export default class AbtInvGenericForm extends LightningElement
         return allValid;
     }
 
+    @api
+    getResetValue()
+    {
+        let inputFields = this.template.querySelectorAll(
+            'lightning-input-field'
+        );
+        if (inputFields) {
+            inputFields.forEach(field => {
+                field.reset();
+            });
+        }
+    }
+
     handleChangeValue(event)
     {
         // Creates the event with the data.

@@ -1,0 +1,15 @@
+<!--
+  @description       : 
+  @author            : Francisco José Díaz Ramírez
+  @group             : 
+  @last modified on  : 06-18-2022
+  @last modified by  : Francisco José Díaz Ramírez
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:workspaceAPI aura:id="workspace"/>
+    <c:createRelatedContact recordId="{!v.recordId}"
+                            onrefresh="{!c.handleRefresh}">
+
+    </c:createRelatedContact>
+
+</aura:component>	

@@ -55,7 +55,11 @@ export default class CreateRelatedContact extends LightningElement
                 formAnsewer[1].Name = `${data.fields.FirstName.value} ${data.fields.LastName.value} Opportunity`;
                 let opportunityRecord = {apiName: "Opportunity", fields : formAnsewer[1]};
                 createRecord(opportunityRecord).then(() => {
-                    this._isSpinner = false;
+                    forms.forEach(function(f) 
+                    {
+                        f.getResetValue();
+                    });
+
                     this.dispatchEvent(
                         new ShowToastEvent({
                             title: 'Success',
@@ -63,6 +67,9 @@ export default class CreateRelatedContact extends LightningElement
                             variant: 'success'
                         })
                     );
+                    this.dispatchEvent( new CustomEvent( 'refresh'));
+                    
+                    this._isSpinner = false;
                 });
             }).catch(error => {
                 this._isSpinner = false;
